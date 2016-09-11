@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.*;
+class SelectionSort
+{
+  public static void main(String args[]) throws IOException
+  {
+    SelectionSort st = new SelectionSort();
+    int N;    
+    Scanner scan = new Scanner(System.in);    
+    N = scan.nextInt();
+    int arr[] = new int[N];
+    for(int i = 0; i<N;i++)
+    {
+      arr[i] = scan.nextInt();
+    }
+    st.sort(arr, N);
+    for(int i = 0;i<N;i++)
+    {
+      System.out.println(arr[i] + " ");
+    }    
+  }
+
+  public void sort(int arr[], int N)
+  {
+    for(int i = 0;i<N-1;i++)
+    {
+      int iMax = i;
+      for(int j = i+1;j<N;j++)
+      {
+        if(arr[j] > arr[iMax])
+          iMax = j;        
+      }
+      int temp = arr[i];
+      arr[i] = arr[iMax];
+      arr[iMax] = temp;      
+    }    
+  }
+}
